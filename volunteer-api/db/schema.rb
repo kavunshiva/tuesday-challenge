@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913180344) do
+ActiveRecord::Schema.define(version: 20170915043816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20170913180344) do
     t.string "political_interests"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "volunteers_voters", id: false, force: :cascade do |t|
+    t.bigint "volunteer_id"
+    t.bigint "voter_id"
+    t.index ["volunteer_id"], name: "index_volunteers_voters_on_volunteer_id"
+    t.index ["voter_id"], name: "index_volunteers_voters_on_voter_id"
   end
 
   create_table "voters", force: :cascade do |t|

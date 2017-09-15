@@ -1,12 +1,19 @@
-const apiUrl = "http://localhost:3000/api/v1/volunteers"
+const apiUrl = "http://localhost:3000/api/v1/"
 
-export default class VolunteersAdapter {
+export class VolunteersAdapter {
   static volunteers(){
-    return fetch(apiUrl)
+    return fetch(`${apiUrl}volunteers`)
       .then(response => response.json())
   }
   static volunteer(id){
-    return fetch(`${apiUrl}/${id}`)
+    return fetch(`${apiUrl}/volunteers/${id}`)
+      .then(response => response.json())
+  }
+}
+
+export class VotersAdapter {
+  static getVotersByVolunteer(volunteer){
+    return fetch(`${apiUrl}/volunteers/${volunteer.id}/voters`)
       .then(response => response.json())
   }
 }

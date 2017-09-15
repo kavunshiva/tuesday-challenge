@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import VolunteersAdapter from '../adapters'
+import { VolunteersAdapter } from '../adapters'
 import VolunteersPage from '../components/VolunteersPage'
 
 export default class VolunteersContainer extends Component {
